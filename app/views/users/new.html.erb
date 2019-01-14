@@ -1,0 +1,9 @@
+<h1>Users#new</h1>
+<%= form_with model: @user do |f| %>
+  <%= f.text_field :name, placeholder: 'name' %>
+  <%= f.text_field :email, placeholder: 'email' %>
+  <%= f.file_field :image %>
+  <%= f.password_field :password, placeholder: 'password' %>
+  <%= f.text_field :role, placeholder: 'role'  %>
+  <%= f.submit 'submit' %>
+<% end %>
