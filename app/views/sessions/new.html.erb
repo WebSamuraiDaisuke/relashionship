@@ -1,7 +1,8 @@
 <h1>Sessions#new</h1>
 <h2>Login</h2>
-<%= form_with model: @session do |f|%>
-  <%= f.email_field :email  %>
-  <%= f.password_field :password %>
-  <%= f.submit  %>
+<%#= form_with model: @session do |f|%><!-- ここをform_forではなく, form_withにしたい -->
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.email_field :email, placeholder: 'Email'  %>
+  <%= f.password_field :password, placeholder: 'Password' %>
+  <%= f.submit 'Login' %>
 <% end %>
