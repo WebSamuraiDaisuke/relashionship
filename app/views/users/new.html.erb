@@ -1,11 +1,11 @@
 <h1>Users#new</h1>
 <%= form_with model: @user do |f| %>
-  <%= f.radio_button :role, 0  %>
-  <%= f.label :role, '管理者', value: 0  %>
-  <%= f.radio_button :role, 1  %>
-  <%= f.label :role, '病院', value: 1  %>
-  <%= f.radio_button :role, 2  %>
-  <%= f.label :role, '薬局', value: 2  %>
+  <%= f.radio_button :role, 'Admin'  %>
+  <%= f.label :role, '管理者', value: 'Admin'  %>
+  <%= f.radio_button :role, 'Hospital'  %>
+  <%= f.label :role, '病院', value: 'Hospital'  %>
+  <%= f.radio_button :role, 'Pharmacy'  %>
+  <%= f.label :role, '薬局', value: 'Pharmacy'  %>
   <%= f.text_field :name, placeholder: 'name' %>
   <%= f.text_field :email, placeholder: 'email' %>
   <%= f.file_field :image %>

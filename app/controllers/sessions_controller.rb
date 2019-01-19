@@ -3,9 +3,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # ここでsession_paramsを使う場合はどういうコードが必要か？
-    email = params[:session][:email]
-    password = params[:session][:password]
+    # byebug
+    email = params[:email]
+    password = params[:password]
     if login(email, password)
       flash[:success] = 'ログインに成功しました'
       redirect_to root_path
@@ -23,15 +23,16 @@ class SessionsController < ApplicationController
 
   private
 
-  def session_params
-    params.require(:session).permit(:email, :password)
-  end
+  # def session_params
+  #   params.require(:session).permit(:email, :password)
+  # end
 
   def login(email, password)
+    byebug
     @user = User.find_by(email: email)
-    #if @user && @user.authenticate(password)
-    if @user&.authenticate(password) # ここぼっち演算子を使えるのはなぜか？ぼっち演算子とは？
+    if @user&.authenticate(password) && @user.role == 'Admin'
       session[:user_id] = @user.id
+      session[:role] = 'Admin'
       true
     else
       false
