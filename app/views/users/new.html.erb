@@ -6,9 +6,11 @@
   <%= f.label :role, '病院', value: 'Hospital'  %>
   <%= f.radio_button :role, 'Pharmacy'  %>
   <%= f.label :role, '薬局', value: 'Pharmacy'  %>
+  <br>
   <%= f.text_field :name, placeholder: 'name' %>
   <%= f.text_field :email, placeholder: 'email' %>
   <%= f.file_field :image %>
+  <br>
   <%= f.password_field :password, placeholder: 'password' %>
   <%= f.text_area :bio, placeholder: 'Input your bio'  %>
   <%= f.submit 'submit' %>
